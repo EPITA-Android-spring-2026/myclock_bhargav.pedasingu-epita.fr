@@ -1,0 +1,54 @@
+/*
+ * build.gradle (app module) - KOTLIN VERSION
+ * -------------------------------------------
+ * The KEY difference from Java's build.gradle:
+ * We add the Kotlin Android plugin: "id 'org.jetbrains.kotlin.android'"
+ * This tells Gradle to compile .kt files using the Kotlin compiler.
+ *
+ * compileSdk 36 = compile against Android API 36
+ * minSdk 26     = minimum Android 8.0 (needed for NotificationChannel)
+ * targetSdk 36  = tested against API 36 (Pixel 9a's API level)
+ *
+ * NO external libraries - pure Android SDK + Kotlin stdlib only.
+ * The Kotlin stdlib is automatically included when you use the Kotlin plugin.
+ */
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'  // This is what makes it a Kotlin project!
+}
+
+android {
+    namespace 'com.obaid.clockapp'
+    compileSdk 36
+
+    defaultConfig {
+        applicationId "com.obaid.clockapp"
+        minSdk 26
+        targetSdk 36
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+
+    /*
+     * Kotlin needs the JVM target specified.
+     * kotlinOptions.jvmTarget = "1.8" means:
+     * compile Kotlin to Java 8 bytecode (compatible with all modern Android).
+     */
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    // NO EXTERNAL LIBRARIES - just Kotlin stdlib (auto-included) + Android SDK
+}
