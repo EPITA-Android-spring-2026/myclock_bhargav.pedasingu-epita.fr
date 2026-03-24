@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    strings.xml
+    -----------
+    Best practice: store all text in this file instead of hardcoding in Java/XML.
+    Why? Makes it easy to translate your app to other languages later.
+    You reference these with: android:text="@string/app_name"
+-->
+<resources>
+    <string name="app_name">ClockApp</string>
+</resources>

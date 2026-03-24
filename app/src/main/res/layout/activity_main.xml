@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    activity_main.xml
+    -----------------
+    This is the ROOT layout of the whole app.
+    It contains two parts:
+    1. A FrameLayout (the "screen area") where fragments are shown
+    2. A LinearLayout at the bottom acting as navigation bar
+
+    LinearLayout = arranges children in a line (vertical or horizontal)
+    FrameLayout  = a container where you "stack" one view at a time (perfect for fragments)
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FAFAFA">
+
+    <!--
+        FRAGMENT CONTAINER
+        weight="1" with layout_height="0dp" is a trick to say:
+        "take up ALL the space not used by other views"
+        This makes the fragment area fill the screen minus the nav bar.
+    -->
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <!-- DIVIDER LINE -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DDDDDD"/>
+
+    <!-- BOTTOM NAVIGATION BAR -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:orientation="horizontal"
+        android:background="#FFFFFF">
+
+        <!-- Each nav item: icon emoji + label in a single TextView -->
+        <!-- layout_weight="1" means all 4 get equal width -->
+
+        <TextView
+            android:id="@+id/nav_clock"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="🕐&#10;Clock"
+            android:gravity="center"
+            android:textSize="11sp"
+            android:textColor="#6200EE"
+            android:padding="4dp"/>
+
+        <TextView
+            android:id="@+id/nav_alarm"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="⏰&#10;Alarm"
+            android:gravity="center"
+            android:textSize="11sp"
+            android:textColor="#888888"
+            android:padding="4dp"/>
+
+        <TextView
+            android:id="@+id/nav_timer"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="⏱&#10;Timer"
+            android:gravity="center"
+            android:textSize="11sp"
+            android:textColor="#888888"
+            android:padding="4dp"/>
+
+        <TextView
+            android:id="@+id/nav_stopwatch"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="⏲&#10;Stopwatch"
+            android:gravity="center"
+            android:textSize="11sp"
+            android:textColor="#888888"
+            android:padding="4dp"/>
+
+    </LinearLayout>
+</LinearLayout>

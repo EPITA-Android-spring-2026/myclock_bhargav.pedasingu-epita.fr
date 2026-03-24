@@ -18,11 +18,11 @@ plugins {
 }
 
 android {
-    namespace 'com.obaid.clockapp'
+    namespace 'com.example.clockapp'
     compileSdk 36
 
     defaultConfig {
-        applicationId "com.obaid.clockapp"
+        applicationId "com.example.clockapp"
         minSdk 26
         targetSdk 36
         versionCode 1

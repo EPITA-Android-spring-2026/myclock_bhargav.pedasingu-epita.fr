@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    styles.xml
+    ----------
+    Defines the visual "theme" of the app.
+    Theme.Material.Light.NoActionBar means:
+    - Use Material Design styling
+    - Light (white background) colors
+    - NoActionBar = hide the top title bar (we'll use our own layout)
+-->
+<resources>
+    <style name="AppTheme" parent="android:Theme.Material.Light.NoActionBar">
+        <!-- Primary brand color (purple) -->
+        <item name="android:colorPrimary">#6200EE</item>
+        <!-- Darker shade for status bar -->
+        <item name="android:colorPrimaryDark">#3700B3</item>
+        <!-- Accent color for highlights (buttons, etc.) -->
+        <item name="android:colorAccent">#03DAC6</item>
+        <!-- Window background -->
+        <item name="android:windowBackground">#FAFAFA</item>
+    </style>
+</resources>

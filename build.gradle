@@ -1,0 +1,11 @@
+/*
+ * build.gradle (project root) - KOTLIN VERSION
+ * ----------------------------------------------
+ * We add the Kotlin Android Gradle Plugin here.
+ * "apply false" means: make it available to sub-modules (like :app)
+ * but don't apply it at the root level.
+ */
+plugins {
+    id 'com.android.application'        version '8.7.0' apply false
+    id 'org.jetbrains.kotlin.android'   version '2.0.0' apply false
+}

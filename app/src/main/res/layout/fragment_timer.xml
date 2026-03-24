@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    fragment_timer.xml
+    ------------------
+    Three NumberPickers (HH:MM:SS) at top for input.
+    Big display shows countdown.
+    Three buttons: Start/Resume, Pause, Reset.
+-->
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAFAFA">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Timer"
+            android:textSize="20sp"
+            android:textColor="#6200EE"
+            android:textStyle="bold"
+            android:paddingBottom="24dp"/>
+
+        <!-- Three pickers: HH MM SS -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:paddingBottom="24dp">
+
+            <!-- Hours -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="HH"
+                    android:textColor="#888888"
+                    android:paddingBottom="4dp"/>
+                <NumberPicker
+                    android:id="@+id/timer_hour_picker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textSize="28sp"
+                android:textColor="#333333"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:paddingTop="20dp"/>
+
+            <!-- Minutes -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MM"
+                    android:textColor="#888888"
+                    android:paddingBottom="4dp"/>
+                <NumberPicker
+                    android:id="@+id/timer_minute_picker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textSize="28sp"
+                android:textColor="#333333"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:paddingTop="20dp"/>
+
+            <!-- Seconds -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SS"
+                    android:textColor="#888888"
+                    android:paddingBottom="4dp"/>
+                <NumberPicker
+                    android:id="@+id/timer_second_picker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Countdown display -->
+        <TextView
+            android:id="@+id/timer_display"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="00:00:00"
+            android:textSize="64sp"
+            android:textColor="#1A1A2E"
+            android:gravity="center"
+            android:fontFamily="monospace"
+            android:paddingBottom="32dp"/>
+
+        <!-- Buttons row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/timer_start_button"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="6dp"
+                android:text="Start"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#4CAF50"
+                android:textSize="15sp"/>
+
+            <Button
+                android:id="@+id/timer_pause_button"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_weight="1"
+                android:layout_marginStart="6dp"
+                android:layout_marginEnd="6dp"
+                android:text="Pause"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#FF9800"
+                android:textSize="15sp"
+                android:enabled="false"/>
+
+            <Button
+                android:id="@+id/timer_reset_button"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_weight="1"
+                android:layout_marginStart="6dp"
+                android:text="Reset"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#F44336"
+                android:textSize="15sp"
+                android:enabled="false"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

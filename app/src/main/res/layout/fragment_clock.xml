@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    fragment_clock.xml
+    ------------------
+    Layout for the Clock screen.
+    ScrollView at root so content is scrollable on small screens.
+-->
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAFAFA">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <!-- Screen Title -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Current Time"
+            android:textSize="20sp"
+            android:textColor="#6200EE"
+            android:textStyle="bold"
+            android:paddingBottom="24dp"/>
+
+        <!-- Big time display  -->
+        <TextView
+            android:id="@+id/time_display"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="00:00:00"
+            android:textSize="56sp"
+            android:textColor="#1A1A2E"
+            android:gravity="center"
+            android:fontFamily="monospace"
+            android:paddingBottom="8dp"/>
+
+        <!-- Date display -->
+        <TextView
+            android:id="@+id/date_display"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Loading..."
+            android:textSize="16sp"
+            android:textColor="#666666"
+            android:gravity="center"
+            android:paddingBottom="40dp"/>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E0E0E0"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Section title -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Set System Time"
+            android:textSize="18sp"
+            android:textColor="#333333"
+            android:textStyle="bold"
+            android:paddingBottom="16dp"/>
+
+        <!-- Hour and Minute pickers side by side -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:paddingBottom="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingEnd="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hour"
+                    android:textColor="#666666"
+                    android:paddingBottom="8dp"/>
+
+                <NumberPicker
+                    android:id="@+id/hour_picker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textSize="32sp"
+                android:textColor="#333333"
+                android:paddingEnd="24dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Minute"
+                    android:textColor="#666666"
+                    android:paddingBottom="8dp"/>
+
+                <NumberPicker
+                    android:id="@+id/minute_picker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Set Time Button -->
+        <Button
+            android:id="@+id/set_time_button"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="16dp"
+            android:text="Set System Time"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#6200EE"
+            android:textSize="16sp"/>
+
+    </LinearLayout>
+</ScrollView>

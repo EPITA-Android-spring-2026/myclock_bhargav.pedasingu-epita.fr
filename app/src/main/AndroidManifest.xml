@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    AndroidManifest.xml
+    --------------------
+    This is the "ID card" of your app. Android reads this file to understand:
+    - What is the app's package name? (unique identifier on the device)
+    - What Activity starts when the user opens the app? (LAUNCHER)
+    - What BroadcastReceivers exist? (AlarmReceiver)
+    - What permissions does the app need? (vibrate, alarms, notifications, set time)
+
+    Every Activity, Service, and BroadcastReceiver MUST be listed here,
+    otherwise Android won't know they exist and they'll crash when called.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.clockapp">
+
+    <!-- PERMISSIONS -->
+    <!--
+        Permissions are listed here and the user may need to approve them.
+        - VIBRATE: allows notification vibration
+        - SET_ALARM: allows scheduling alarms
+        - SCHEDULE_EXACT_ALARM: required for setExactAndAllowWhileIdle() on API 31+
+        - POST_NOTIFICATIONS: required to show notifications on Android 13+ (API 33)
+        - SET_TIME: to change the system clock (usually requires system app)
+        - RECEIVE_BOOT_COMPLETED: lets app reschedule alarms after device restarts
+    -->
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.SET_TIME"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
+    <application
+        android:allowBackup="true"
+        android:label="ClockApp"
+        android:theme="@style/AppTheme">
+
+        <!--
+            MainActivity - our single Activity.
+            The intent-filter with MAIN + LAUNCHER means:
+            "This is the screen that opens when user taps the app icon"
+        -->
+        <activity android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <!--
+            AlarmReceiver - our BroadcastReceiver.
+            Must be registered here for Android to know it exists.
+            exported="true" is required so the AlarmManager (system process)
+            can send broadcasts to it.
+        -->
+        <receiver android:name=".AlarmReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+
+    </application>
+</manifest>
